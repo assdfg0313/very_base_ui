@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:very_base_ui/kanghyun/text_field_test.dart';
+
+import 'clock_test.dart';
 
 List<List<String>> list = [
-
+  ['/text_field_test0',"200722","강현"],
+  ['/clock_test',"200722","강현"],
 ];
 
 class kh_folder extends StatelessWidget {
@@ -14,7 +18,10 @@ class kh_folder extends StatelessWidget {
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         home: khFolder(),
-        routes: {        }
+        routes: {
+          '/text_field_test0':(context) => text_field_test0(),
+          '/clock_test':(context) => clock_test(),
+        }
     );
   }
 }
