@@ -1,13 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import 'dart:math';
-
-import 'image_animation_Test/animated_container.dart';
-import 'item/cupertino_test/cupertino_button_picker.dart';
+import 'package:very_base_ui/teayong/ty_folder.dart';
+import 'image_animation_Test/image_folder.dart';
+import 'item/cupertino_test/cupertino_folder.dart';
+import 'jinho/jh_folder.dart';
+import 'kanghyun/kh_folder.dart';
+import 'kibaek/kb_folder.dart';
 
 void main() {
   runApp(MyApp());
 }
+
+List<String> list = [
+  '/image_folder',
+  '/cupertino_folder',
+  '/jh_folder',
+  '/kh_folder',
+  '/kb_folder',
+  '/ty_folder',
+];
 
 class MyApp extends StatelessWidget {
   @override
@@ -20,12 +30,17 @@ class MyApp extends StatelessWidget {
         ),
         home: MyHomePage(title: 'Flutter very first base'),
         routes: {
-          '/animiated_container':(context) => animated_container(),
-          '/cupertino_button_picker': (context) => cupertino_button_picker(),
+          '/image_folder':(context) => image_folder(),
+          '/cupertino_folder': (context) => cupertino_folder(),
+          '/jh_folder': (context) => jh_folder(),
+          '/kh_folder': (context) => kh_folder(),
+          '/kb_folder': (context) => kb_folder(),
+          '/ty_folder': (context) => ty_folder(),
         }
         );
   }
 }
+
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -36,20 +51,37 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var _size = 100.0;
-  var _isOn = false;
+
+  Widget folder_list(String title) {
+    return GestureDetector(
+      onTap:(){Navigator.pushNamed((context), title);},
+      child: SizedBox(
+        height: 80,
+        width: 300,
+        child: Container(
+          decoration: BoxDecoration(border: Border.all(color: Colors.red, width:1),),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(title, textAlign: TextAlign.center,),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("total contents")),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            GestureDetector(onTap:(){Navigator.pushNamed((context), '/animiated_container');},child: Text("image animation", textAlign: TextAlign.center,)),
-            GestureDetector(onTap:(){Navigator.pushNamed((context), '/cupertino_button_picker');},child: Text("cupertino design", textAlign: TextAlign.center,)),
-          ],
+        child: SingleChildScrollView(
+            child:Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: list.map((folder)=>folder_list(folder)).toList(),
+            ),
         ),
       ),
     );

@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 class cupertino_button_picker extends StatefulWidget {
-  cupertino_button_picker({Key key, this.title}) : super(key: key);
-  final String title;
 
   @override
   _cupertino_button_picker createState() => _cupertino_button_picker();
@@ -16,7 +14,7 @@ class _cupertino_button_picker extends State<cupertino_button_picker> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CupertinoNavigationBar(
-        middle: Text(widget.title),
+        middle: Text("cupertino design"),
       ),
       body: Center(
         child: Column(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class animated_container extends StatefulWidget {
+
   @override
   _animated_containerState createState() => _animated_containerState();
 }
@@ -13,7 +14,7 @@ class _animated_containerState extends State<animated_container> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Hero')
+        title: Text("image animation")
       ),
       body: Center(
         child: GestureDetector(
