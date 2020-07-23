@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:very_base_ui/provider/provider_folder.dart';
 import 'package:very_base_ui/teayong/ty_folder.dart';
+import 'firebase/firebase_folder.dart';
 import 'image_animation_Test/image_folder.dart';
 import 'item/cupertino_test/cupertino_folder.dart';
 import 'jinho/jh_folder.dart';
@@ -11,8 +13,10 @@ void main() {
 }
 
 List<String> list = [
+  '/firebase_folder',
   '/image_folder',
   '/cupertino_folder',
+  '/provider_folder',
   '/jh_folder',
   '/kh_folder',
   '/kb_folder',
@@ -30,8 +34,10 @@ class MyApp extends StatelessWidget {
         ),
         home: MyHomePage(title: 'Flutter very first base'),
         routes: {
+          '/firebase_folder':(context) => firebase_folder(),
           '/image_folder':(context) => image_folder(),
           '/cupertino_folder': (context) => cupertino_folder(),
+          '/provider_folder': (context) => provider_folder(),
           '/jh_folder': (context) => jh_folder(),
           '/kh_folder': (context) => kh_folder(),
           '/kb_folder': (context) => kb_folder(),
